@@ -3,6 +3,7 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
+    public bool stopCamera = false;
 
     public float speed = 5.0f;
     public float turnSpeed = 5.0f;
@@ -39,6 +40,24 @@ public class PlayerController : MonoBehaviour
         }
         moveDir.y -= gravity * Time.deltaTime;
         controller.Move(moveDir * Time.deltaTime);
+    }
+
+    void LateUpdate()
+    {
+        Vector3 pos = Camera.main.WorldToViewportPoint(transform.position);
+        pos.x = Mathf.Clamp01(pos.x);
+        pos.y = Mathf.Clamp01(pos.y);
+        transform.position = Camera.main.ViewportToWorldPoint(pos);
+
+        if(Camera.main.WorldToViewportPoint(transform.position).x < .05 || Camera.main.WorldToViewportPoint(transform.position).x > .95
+            || Camera.main.WorldToViewportPoint(transform.position).y < .05 || Camera.main.WorldToViewportPoint(transform.position).y > .95)
+        {
+            stopCamera = true;
+        }
+        else
+        {
+            stopCamera = false;
+        }
     }
 
     void FixedUpdate()

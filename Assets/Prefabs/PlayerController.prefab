@@ -88,13 +88,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44435725686e6eb45914198900aeb417, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stopCamera: 0
   speed: 7
   turnSpeed: 5
   gravity: 100
   jump: 20
   jumpButton: Jump_P1
-  horizontalButton: Horizontal_P1
-  verticalButton: Vertical_P1
+  horizontalButton: JoystickLeftX_P1
+  verticalButton: JoystickLeftY_P1
 --- !u!143 &14305562
 CharacterController:
   m_ObjectHideFlags: 1
