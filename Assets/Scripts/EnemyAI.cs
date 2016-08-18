@@ -43,7 +43,6 @@ public class EnemyAI : MonoBehaviour
         if (navD > chaseDist)
         {
             agent.Stop();
-            //agent.speed = 0;
         }
         else if(navD > 2)
         {
