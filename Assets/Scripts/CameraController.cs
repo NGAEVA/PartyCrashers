@@ -19,16 +19,39 @@ public class CameraController : MonoBehaviour {
     {
         gameObject.transform.rotation = Quaternion.Euler(rotation);
 
-        float x = 0;
-        float z = 0;
 
+        float xDistance = -1;
+        float zDistance = -1;
+
+        float x1 = 0;
+        float z1 = 0;
+        float x2 = 0;
+        float z2 = 0;
+
+        //Loop through players and set x to greatest x distance, and y to greatest y distance between current player and any other player
         for (int i = 0; i < players.Length; i++)
         {
-            x += players[i].gameObject.transform.position.x;
-            z += players[i].gameObject.transform.position.z;
+            for (int j = i; j < players.Length; j++)
+            {
+                if (Mathf.Abs(players[i].transform.position.x - players[j].transform.position.x) > xDistance) // if the distance is greater than current
+                {
+                    xDistance = Mathf.Abs(players[i].transform.position.x - players[j].transform.position.x);
+                    x1 = players[i].transform.position.x; // update x to the new greatest distance
+                    x2 = players[j].transform.position.x; // set this gamobject to the other player that this player has the greatest distance with
+                }
+
+                if (Mathf.Abs(players[i].transform.position.z - players[j].transform.position.z) > zDistance)
+                {
+                    zDistance = Mathf.Abs(players[i].transform.position.z - players[j].transform.position.z);
+                    z1 = players[i].transform.position.z;
+                    z2 = players[j].transform.position.z;
+                }
+            }
         }
 
-        gameObject.transform.position = new Vector3(x / players.Length, transform.position.y, z / players.Length - distanceOffset);
+        float averageX = (x1 + x2) / 2;
+        float averageZ = (z1 + z2) / 2;
+        gameObject.transform.position = new Vector3(averageX, transform.position.y, averageZ - distanceOffset);
 
     }
 }
