@@ -13,6 +13,9 @@ GameObject:
   - 23: {fileID: 2319358}
   - 114: {fileID: 11468406}
   - 143: {fileID: 14305562}
+  - 114: {fileID: 11477312}
+  - 114: {fileID: 11415738}
+  - 114: {fileID: 11403398}
   m_Layer: 0
   m_Name: PlayerController
   m_TagString: Untagged
@@ -77,6 +80,29 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &11403398
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 180630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c2c651005b4d6842b48cba36979474f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Type: 0
+--- !u!114 &11415738
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 180630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e02ccf356ab93cf4bb286771eb6a1b48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11468406
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -92,9 +118,32 @@ MonoBehaviour:
   turnSpeed: 5
   gravity: 100
   jump: 20
+  maxMovementX: 20
+  maxMovementZ: 18
   jumpButton: Jump_P1
-  horizontalButton: Horizontal_P1
-  verticalButton: Vertical_P1
+  horizontalButton: JoystickLeftX_P1
+  verticalButton: JoystickLeftY_P1
+--- !u!114 &11477312
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 180630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ce65b2740421a148b24c11da9e84a06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PlayerName: 
+  m_AttackSpeed: 0
+  m_Gold: 0
+  m_Health: 0
+  m_PrimaryAttack: 
+  m_SecondaryAttack: 
+  m_Interact: 
+  m_Silly: 
+  m_Stats: 
+  m_Pause: 
 --- !u!143 &14305562
 CharacterController:
   m_ObjectHideFlags: 1
